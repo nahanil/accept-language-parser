@@ -69,4 +69,17 @@ describe('accept-language', function(){
         assertResult({ code: 'en', quality: 0.4}, result[3]);
         assertResult({ code: 'fr', quality: 0.2}, result[4]);
     });
+
+    it('should correctly parse full language and return its full name in English', function(){
+        var result = parser.parse('fr-CA,en-GB;q=0.8');
+        assertResult({ code: 'fr', name: 'French',  region: 'CA', quality: 1.0}, result[0]);
+        assertResult({ code: 'en', name: 'English', region: 'GB', quality: 0.8}, result[1]);
+    });
+
+    it('should correctly parse region and provide full region name (in English)', function(){
+        var result = parser.parse('fr-CA,en-GB;q=0.8');
+        assertResult({ code: 'fr', name: 'French',  region: 'CA', regionName: 'Canada', quality: 1.0}, result[0]);
+        assertResult({ code: 'en', name: 'English', region: 'GB', regionName: 'United Kingdom', quality: 0.8}, result[1]);
+    });
+
 });
