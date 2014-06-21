@@ -1,16 +1,16 @@
 accept-language-parser
 ======================
 
-[![Build Status](https://travis-ci.org/opentable/accept-language-parser.png?branch=master)](https://travis-ci.org/opentable/accept-language-parser) [![NPM version](https://badge.fury.io/js/accept-language-parser.png)](http://badge.fury.io/js/accept-language-parser) ![Dependencies](https://david-dm.org/opentable/accept-language-parser.png)
+[![Build Status](https://travis-ci.org/texh/accept-language-parser.png?branch=master)]
 
 Parses the accept-language header from an HTTP request and produces an array of language objects sorted by quality.
 
 dependencies: none
 
-installation:
+~~installation:~~
 
 ```
-npm install accept-language-parser
+~~npm install accept-language-parser~~
 ```
 
 usage:
@@ -26,18 +26,22 @@ console.log(language);
 Output will be:
 
 ```
-[
-  {
-    code: "en",
-    region: "GB",
-    quality: 1.0
+[ 
+  { 
+    code: 'en',
+    name: 'English',
+    region: 'GB',
+    regionName: 'United Kingdom',
+    quality: 1
   },
-  {
-    code: "en",
+  { 
+    code: 'en',
+    name: 'English',
     region: undefined,
+    regionName: undefined,
     quality: 0.8
   }
-];
+]
 ```
 
 Output is always sorted in quality order from highest -> lowest. as per the http spec, omitting the quality value implies 1.0.
