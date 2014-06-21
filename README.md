@@ -9,9 +9,9 @@ dependencies: none
 
 ~~installation:~~
 
-```
+
 ~~npm install accept-language-parser~~
-```
+
 
 usage:
 
